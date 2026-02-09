@@ -215,6 +215,17 @@
         </div>
 
     </section>
+    <script>
+        // DOTS FUNCTIONALITY
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                document.querySelector('.dot.active').classList.remove('active');
+                dot.classList.add('active');
+                // Here you can add functionality to change the product image and details based on the dot clicked
+            });
+        });
+    </script>
 
 </body>
 </html>
