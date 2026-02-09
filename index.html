@@ -1,231 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gizmo - Hypnotic Poison</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gizmo - Hypnotic Poison</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background: linear-gradient(180deg, #5a0000, #b30000, #5a0000);
-            color: white;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-        /* NAVBAR */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 60px;
-        }
+body{
+background:linear-gradient(180deg,#5a0000,#b30000,#5a0000);
+color:white;
+overflow-x:hidden;
+}
 
-        .logo {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            background: rgba(255,255,255,0.08);
-            padding: 10px 25px;
-            border-radius: 30px;
-        }
+.logo{font-size:28px;font-weight:600;letter-spacing:2px;}
 
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+.nav-links{
+display:flex;gap:25px;background:rgba(255,255,255,0.08);
+padding:10px 25px;border-radius:30px;}
 
-        .nav-links a:hover {
-            color: #ffd2d2;
-        }
+.nav-links a{color:white;text-decoration:none;}
 
-        .signup {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            color: white;
-            font-weight: 600;
-            transition: 0.3s
-        }
+.signup{background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:25px;color:white;text-decoration:none;}
 
-        /* HERO */
-        .hero {
-            min-height: calc(100vh - 80px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 60px;
-        }
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;}
 
-        .hero-container {
-            width: 100%;
-            max-width: 1300px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 40px;
-        }
+.hero-container{max-width:1200px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
 
-        .hero-text {
-            text-align: left;
-        }
+.hero-text h1{font-size:70px;letter-spacing:6px;margin-bottom:20px;}
+.hero-text p{color:#ffd6d6;margin-bottom:25px;}
 
-        .hero-text h1 {
-            font-size: 72px;
-            font-weight: 600;
-            letter-spacing: 6px;
-            margin-bottom: 20px;
-        }
+.price{font-size:44px;margin-bottom:20px;}
 
-        .hero-text p {
-            color: #ffd6d6;
-            max-width: 450px;
-            line-height: 1.6;
-        }
+.buy-btn{background:white;color:black;border:none;padding:14px 30px;border-radius:30px;cursor:pointer;font-weight:600;}
 
-        .price {
-            font-size: 48px;
-            margin: 30px 0 20px;
-            font-weight: 600;
-        }
+.hero-image img{width:380px;max-width:100%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));}
 
-        .buy-btn {
-            background: white;
-            color: black;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+/* PREMIUM SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(80px);transition:all 1s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
 
-        .buy-btn:hover {
-            transform: translateY(-3px);
-        }
+/* CART BUTTON */
+.cart-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+color:black;
+padding:10px 18px;
+border-radius:30px;
+font-weight:600;
+}
 
-        /* PRODUCT IMAGE */
-        .hero-image {
-            text-align: center;
-        }
-
-        .hero-image img {
-            width: 380px;
-            max-width: 300%;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-        }
-
-        /* DOTS */
-        .dots {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: rgba(255,255,255,0.4);
-            border-radius: 50%;
-        }
-
-        .dot.active {
-            background: #ff2b2b;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 900px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 48px;
-            }
-
-            nav {
-                padding: 20px;
-            }
-        }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo">GIZMO</div>
+<button class="cart-btn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
 
-        <div class="nav-links">
-            <a href="#">About</a>
-            <a href="Product.html">Product</a>
-            <a href="contact.html">Contact</a>
-        </div>
+<nav>
+<div class="logo">GIZMO</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Product</a>
+<a href="contact.html">Contact</a>
+</div>
+<a class="signup" href="signup.html">Login</a>
+</nav>
 
-        <a class="signup" href="signup.html">Signup</a>
-    </nav>
+<section class="hero reveal">
+<div class="hero-container">
 
+<div class="hero-text">
+<h1 id="productTitle">HYPNOTIC POISON</h1>
+<p id="productDesc">Luxury oriental vanilla fragrance.</p>
+<div class="price" id="productPrice">$89.75</div>
+<button class="buy-btn" onclick="buyNow()">BUY NOW</button>
+</div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-container">
+<div class="hero-image">
+<img id="productImg" src="1.png">
+</div>
 
-            <!-- LEFT TEXT -->
-            <div class="hero-text">
-                <h1>HYPNOTIC POISON</h1>
+</div>
+</section>
 
-                <p>
-                    Hypnotic Poison by Dior is a oriental vanilla fragrance for women. 
-                    This fragrance composition is every woman's secret weapon.
-                </p>
+<div style="height:100vh;display:flex;align-items:center;justify-content:center;font-size:28px;color:#ffd6d6" class="reveal">
+LOVED BY 2LAKH+ CUSTOMERS
+</div>
 
-                <div class="price">$89.75</div>
+<script>
 
-                <button class="buy-btn">BUY NOW</button>
-            </div>
+/* LOGIN CHECK BEFORE BUY */
+function isLoggedIn(){
+return localStorage.getItem('user');
+}
 
-            <!-- RIGHT IMAGE -->
-            <div class="hero-image">
-                <img src="1.png" alt="Perfume Bottle">
-            </div>
+function buyNow(){
+if(!isLoggedIn()){
+alert('Please Login First');
+window.location='login.html';
+return;
+}
+addToCart();
+window.location='product.html';
+}
 
-        </div>
+/* CART SYSTEM */
+let cart=JSON.parse(localStorage.getItem('cart'))||[];
+updateCartUI();
 
-        <div class="dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-        </div>
+function addToCart(){
+cart.push({name:'Hypnotic Poison',price:89});
+localStorage.setItem('cart',JSON.stringify(cart));
+updateCartUI();
+}
 
-    </section>
-    <script>
-        // DOTS FUNCTIONALITY
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                document.querySelector('.dot.active').classList.remove('active');
-                dot.classList.add('active');
-                // Here you can add functionality to change the product image and details based on the dot clicked
-            });
-        });
-    </script>
+function updateCartUI(){
+document.getElementById('cartCount').innerText=cart.length;
+}
+
+function openCart(){
+alert('Cart Items: '+cart.length);
+}
+
+/* HERO AUTO SLIDER */
+const products=[
+{title:'HYPNOTIC POISON',desc:'Luxury oriental vanilla fragrance.',price:'$89.75',img:'1.png'},
+{title:'ROYAL OUD',desc:'Premium long lasting oud.',price:'$99.50',img:'2.png'}
+];
+
+let slide=0;
+setInterval(()=>{
+slide=(slide+1)%products.length;
+document.getElementById('productTitle').innerText=products[slide].title;
+document.getElementById('productDesc').innerText=products[slide].desc;
+document.getElementById('productPrice').innerText=products[slide].price;
+document.getElementById('productImg').src=products[slide].img;
+},4000);
+
+/* PREMIUM SCROLL REVEAL */
+function reveal(){
+const reveals=document.querySelectorAll('.reveal');
+reveals.forEach(r=>{
+const top=r.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+r.classList.add('active');
+}
+});
+}
+window.addEventListener('scroll',reveal);
+reveal();
+
+</script>
 
 </body>
 </html>
