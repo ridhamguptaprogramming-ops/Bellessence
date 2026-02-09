@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gizmo - Login / Signup</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#5a0000,#b30000,#5a0000);
+color:white;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+}
+
+.logo{
+font-size:28px;
+font-weight:600;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+background:rgba(255,255,255,0.08);
+padding:10px 25px;
+border-radius:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+/* AUTH SECTION */
+.auth-section{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+}
+
+.auth-box{
+width:100%;
+max-width:420px;
+background:rgba(255,255,255,0.06);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(12px);
+box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+
+.auth-title{
+text-align:center;
+font-size:32px;
+margin-bottom:25px;
+letter-spacing:2px;
+}
+
+.auth-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.auth-form input{
+padding:14px;
+border:none;
+border-radius:12px;
+background:rgba(255,255,255,0.12);
+color:white;
+font-size:14px;
+}
+
+.auth-form input::placeholder{
+color:#ffd6d6;
+}
+
+.auth-btn{
+margin-top:8px;
+padding:14px;
+border:none;
+border-radius:25px;
+background:white;
+color:black;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.auth-btn:hover{
+transform:translateY(-2px);
+}
+
+.switch-text{
+text-align:center;
+margin-top:18px;
+font-size:14px;
+}
+
+.switch-text span{
+color:#ffd6d6;
+cursor:pointer;
+font-weight:600;
+}
+
+@media(max-width:768px){
+nav{
+padding:20px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">GIZMO</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Product</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<section class="auth-section">
+
+<div class="auth-box">
+
+<h2 class="auth-title" id="formTitle">Login</h2>
+
+<div class="auth-form" id="authForm">
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<button class="auth-btn" onclick="login()">Login</button>
+</div>
+
+<div class="switch-text">
+Don't have an account? <span onclick="showSignup()">Signup</span>
+</div>
+
+</div>
+
+</section>
+
+<script>
+function showSignup(){
+document.getElementById('formTitle').innerText='Signup';
+document.getElementById('authForm').innerHTML=`
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<button class="auth-btn" onclick="signup()">Signup</button>
+`;
+document.querySelector('.switch-text').innerHTML=`
+Already have an account? <span onclick="location.reload()">Login</span>
+`;
+}
+
+function signup(){
+alert('Connect Firebase Signup Here');
+}
+
+function login(){
+alert('Connect Firebase Login Here');
+}
+</script>
+
+</body>
+</html>
