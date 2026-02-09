@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gizmo - Products</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #5a0000, #b30000, #5a0000);
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            background: rgba(255,255,255,0.08);
+            padding: 10px 25px;
+            border-radius: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* PRODUCT PAGE */
+        .products-page {
+            padding: 60px;
+        }
+
+        .products-page h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+        }
+
+        .product-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .product-card img {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #ffd6d6;
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 900px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">GIZMO</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- PRODUCT PAGE -->
+    <section class="products-page">
+        <h1>OUR PRODUCTS</h1>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="1.png" alt="Product">
+                <h3>Hypnotic Poison</h3>
+                <p>Oriental Vanilla Luxury Perfume</p>
+                <div class="price-tag">$89.75</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="2.png" alt="Product">
+                <h3>Night Essence</h3>
+                <p>Deep Dark Woody Fragrance</p>
+                <div class="price-tag">$79.99</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="3.png" alt="Product">
+                <h3>Royal Oud</h3>
+                <p>Premium Long Lasting Oud</p>
+                <div class="price-tag">$99.50</div>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

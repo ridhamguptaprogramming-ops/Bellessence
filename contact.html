@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gizmo - Contact</title>
+   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/4d5b8b8b1a.js" crossorigin="anonymous"></script>
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+
+        body { background: linear-gradient(180deg,#5a0000,#b30000,#5a0000); color:white; }
+
+        nav { display:flex; justify-content:space-between; align-items:center; padding:20px 60px; }
+
+        .logo { font-size:28px; font-weight:600; letter-spacing:2px; }
+
+        .nav-links { display:flex; gap:25px; background:rgba(255,255,255,0.08); padding:10px 25px; border-radius:30px; }
+
+        .nav-links a { text-decoration:none; color:white; font-size:14px; }
+
+        .contact-page { padding:60px; display:flex; justify-content:center; }
+
+        .contact-container { width:100%; max-width:1000px; background:rgba(255,255,255,0.05); padding:40px; border-radius:20px; backdrop-filter:blur(10px); }
+
+        .contact-container h1 { text-align:center; margin-bottom:30px; letter-spacing:2px; }
+
+        .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+
+        .contact-form { display:grid; gap:15px; }
+
+        .contact-form input, .contact-form textarea { padding:14px; border:none; border-radius:10px; background:rgba(255,255,255,0.1); color:white; }
+
+        .contact-form textarea { height:140px; resize:none; }
+
+        .contact-form button { background:white; color:black; border:none; padding:14px; border-radius:25px; font-weight:600; cursor:pointer; }
+
+        .map iframe { width:100%; height:100%; min-height:350px; border-radius:15px; }
+
+        .socials { display:flex; gap:15px; justify-content:center; margin-top:30px; }
+
+        .socials a { color:white; font-size:22px; background:rgba(255,255,255,0.1); padding:12px; border-radius:50%; transition:0.3s; }
+
+        .socials a:hover { background:white; color:#b30000; }
+
+        .whatsapp { position:fixed; bottom:25px; right:25px; background:#25D366; color:white; font-size:24px; padding:15px; border-radius:50%; text-decoration:none; box-shadow:0 10px 20px rgba(0,0,0,0.3); }
+
+        .popup { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0); background:white; color:black; padding:30px 40px; border-radius:15px; text-align:center; transition:0.3s; }
+
+        .popup.active { transform:translate(-50%,-50%) scale(1); }
+
+        @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+<div class="logo">GIZMO</div>
+<div class="nav-links">
+<a href="product.html">Product</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<section class="contact-page">
+<div class="contact-container">
+<h1>CONTACT US</h1>
+
+<div class="contact-grid">
+
+<form class="contact-form" action="send.php" method="POST" onsubmit="showPopup(); return false;">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<input type="text" name="subject" placeholder="Subject">
+<textarea name="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=Varanasi&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+
+</div>
+
+<div class="socials">
+<a href="#"><i class="bi bi-instagram"></i></a>
+<a href="#"><i class="bi bi-facebook"></i></a>
+<a href="#"><i class="bi bi-twitter"></i></a>
+<a href="#"><i class="bi bi-youtube"></i></a>
+<a href="#"><i class="bi bi-threads"></i></a>
+</div>
+
+</div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/919000000000" target="_blank">
+<i class="bi bi-whatsapp"></i>
+</a>
+
+<div class="popup" id="popup">
+<h2>Message Sent ✅</h2>
+<p>We will contact you soon.</p>
+</div>
+
+<script>
+function showPopup(){
+ document.getElementById('popup').classList.add('active');
+ setTimeout(()=>{
+ document.getElementById('popup').classList.remove('active');
+ },3000);
+}
+</script>
+
+</body>
+</html>
